@@ -6,11 +6,28 @@ A comprehensive Laravel package that provides rapid setup for Authentication, Dy
 
 ## Installation
 
+### Step 1: Add Repository (Required until published to Packagist)
+
+Add this to your `composer.json` file in the `repositories` section:
+
+```json
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/EngOREOO/ultimate-starter-kit"
+    }
+]
+```
+
+### Step 2: Install the Package
+
 ```bash
-composer require EngOREOO/ultimate-starter-kit
+composer require engoreoo/ultimate-starter-kit
 php artisan ultimate:install
 npm install && npm run build
 ```
+
+**Note:** The package name is case-sensitive. Use `engoreoo/ultimate-starter-kit` (all lowercase).
 
 ## Features
 
