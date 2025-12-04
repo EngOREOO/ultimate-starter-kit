@@ -25,7 +25,7 @@ npm install && npm run build
 
 ## Documentation
 
-See [INSTALLATION.md](../INSTALLATION.md) for detailed installation instructions.
+See [INSTALLATION.md](INSTALLATION.md) for detailed installation instructions.
 
 ## Author
 
