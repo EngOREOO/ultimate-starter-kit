@@ -1,5 +1,5 @@
 {
-    "name": "vendor/ultimate-starter-kit",
+    "name": "engoreoo/ultimate-starter-kit",
     "description": "Laravel Ultimate Starter Kit - Rapid setup with Breeze, Dynamic ACL, and Admin Dashboard",
     "type": "laravel-package",
     "license": "MIT",
@@ -17,10 +17,16 @@
     ],
     "authors": [
         {
-            "name": "Your Name",
-            "email": "your.email@example.com"
+            "name": "Ahmed Hany",
+            "email": "engoreoo@gmail.com",
+            "homepage": "https://github.com/EngOREOO"
         }
     ],
+    "homepage": "https://github.com/EngOREOO/ultimate-starter-kit",
+    "support": {
+        "issues": "https://github.com/EngOREOO/ultimate-starter-kit/issues",
+        "source": "https://github.com/EngOREOO/ultimate-starter-kit"
+    },
     "require": {
         "php": "^8.2",
         "laravel/framework": "^12.0"
@@ -40,4 +46,3 @@
     "minimum-stability": "stable",
     "prefer-stable": true
 }
-
