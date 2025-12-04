@@ -1,5 +1,5 @@
 {
-    "name": "vendor/ultimate-starter-kit",
+    "name": "ultimate-starter-kit",
     "description": "Laravel Ultimate Starter Kit - Rapid setup with Breeze, Dynamic ACL, and Admin Dashboard",
     "type": "laravel-package",
     "license": "MIT",
