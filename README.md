@@ -6,20 +6,38 @@ A comprehensive Laravel package that provides rapid setup for Authentication, Dy
 
 ## Installation
 
-### Step 1: Add Repository (Required until published to Packagist)
+### Step 1: Add Repository Configuration
 
-Add this to your `composer.json` file in the `repositories` section:
+**IMPORTANT:** This package is not yet published to Packagist. You must add the repository configuration to your `composer.json` file **BEFORE** running `composer require`.
+
+Open your `composer.json` file and add the `repositories` section. Here's a complete example:
 
 ```json
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/EngOREOO/ultimate-starter-kit"
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^12.0"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/EngOREOO/ultimate-starter-kit.git"
+        }
+    ],
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
     }
-]
+}
 ```
 
+**Note:** Add the `repositories` section at the same level as `require`, `require-dev`, etc.
+
 ### Step 2: Install the Package
+
+After adding the repository configuration, run:
 
 ```bash
 composer require engoreoo/ultimate-starter-kit
@@ -27,7 +45,33 @@ php artisan ultimate:install
 npm install && npm run build
 ```
 
-**Note:** The package name is case-sensitive. Use `engoreoo/ultimate-starter-kit` (all lowercase).
+**Important Notes:**
+- The package name is **case-sensitive**. Use `engoreoo/ultimate-starter-kit` (all lowercase).
+- You must add the repository configuration **before** running `composer require`.
+- If you get a "Could not find a matching version" error, make sure you've added the repository configuration correctly.
+
+### Troubleshooting
+
+**Error: "Could not find a matching version"**
+
+1. Make sure you've added the `repositories` section to your `composer.json` **before** running `composer require`.
+2. Clear Composer cache: `composer clear-cache`
+3. If the repository URL doesn't work, try the alternative:
+   ```json
+   "repositories": [
+       {
+           "type": "vcs",
+           "url": "https://github.com/EngOREOO/atomic-starter-kit.git"
+       }
+   ]
+   ```
+4. Make sure you're using the correct package name: `engoreoo/ultimate-starter-kit` (all lowercase).
+
+**GitHub API Rate Limit**
+
+If you see a GitHub API rate limit error, you can:
+- Wait for the rate limit to reset (usually 1 hour)
+- Create a GitHub OAuth token and configure it in Composer (see Composer documentation)
 
 ## Features
 
