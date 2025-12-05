@@ -61,6 +61,12 @@ class UltimateServiceProvider extends ServiceProvider
 
         // Register admin routes
         $this->registerRoutes();
+
+        // Override Breeze's dashboard route after all service providers have booted
+        // This ensures our route takes precedence over Breeze's
+        $this->app->booted(function () {
+            $this->overrideBreezeDashboard();
+        });
     }
 
     /**
@@ -74,8 +80,22 @@ class UltimateServiceProvider extends ServiceProvider
             ->group(function () {
                 require __DIR__.'/Routes/admin.php';
             });
+    }
 
-        // Override Breeze's dashboard route to use our dashboard and layout
+    /**
+     * Override Breeze's dashboard route to use our dashboard and layout.
+     */
+    protected function overrideBreezeDashboard(): void
+    {
+        // Remove Breeze's dashboard route if it exists
+        $routes = Route::getRoutes();
+        $breezeDashboard = $routes->getByName('dashboard');
+        
+        if ($breezeDashboard) {
+            $routes->remove($breezeDashboard);
+        }
+
+        // Register our dashboard route
         Route::middleware(['web', 'auth', 'ultimate.permission'])
             ->get('/dashboard', [DashboardController::class, 'index'])
             ->name('dashboard');
