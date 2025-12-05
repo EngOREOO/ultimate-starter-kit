@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Vendor\UltimateStarterKit\Commands\InstallCommand;
 use Vendor\UltimateStarterKit\Commands\ScanRoutesCommand;
 use Vendor\UltimateStarterKit\Middleware\CheckPermission;
+use Vendor\UltimateStarterKit\Controllers\DashboardController;
 
 class UltimateServiceProvider extends ServiceProvider
 {
@@ -73,6 +74,11 @@ class UltimateServiceProvider extends ServiceProvider
             ->group(function () {
                 require __DIR__.'/Routes/admin.php';
             });
+
+        // Override Breeze's dashboard route to use our dashboard and layout
+        Route::middleware(['web', 'auth', 'ultimate.permission'])
+            ->get('/dashboard', [DashboardController::class, 'index'])
+            ->name('dashboard');
     }
 }
 
