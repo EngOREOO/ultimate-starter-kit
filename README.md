@@ -62,9 +62,33 @@ npm install && npm run build
 
 **GitHub API Rate Limit**
 
-If you see a GitHub API rate limit error, you can:
-- Wait for the rate limit to reset (usually 1 hour)
-- Create a GitHub OAuth token and configure it in Composer (see Composer documentation)
+If you see a "GitHub API limit (60 calls/hr) is exhausted" error:
+
+**Option 1: Create a GitHub Token (Recommended)**
+
+1. Go to https://github.com/settings/tokens/new
+2. Give it a name like "Composer"
+3. **Don't select any scopes** (for public repos, no permissions needed)
+4. Click "Generate token"
+5. Copy the token
+6. Run this command and paste your token when prompted:
+   ```bash
+   composer config --global github-oauth.github.com YOUR_TOKEN_HERE
+   ```
+   Or manually add it to `C:/Users/YourUsername/AppData/Roaming/Composer/auth.json`:
+   ```json
+   {
+       "github-oauth": {
+           "github.com": "YOUR_TOKEN_HERE"
+       }
+   }
+   ```
+
+**Option 2: Wait**
+
+Simply wait for the rate limit to reset (usually 1 hour). The error message will show when it resets.
+
+**Note:** Publishing to Packagist will eliminate this issue entirely.
 
 ## Features
 
